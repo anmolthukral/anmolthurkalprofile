@@ -1,0 +1,27 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: .*
+  script: main.app
+  
+- url: /static/css
+  static_dir: static/css
+
+  
+- url: /static/js
+  static_dir: static/js
+  
+- url: /static/images
+  static_dir: static/images/
+
+- url: /static/res.jpg
+  static_files: static/res
+  upload: static/.*\.(gif|png|jpg|pdf)$
+  
+libraries:
+- name: jinja2
+  version: "2.6"
+- name: markupsafe
+  version: "0.15"
